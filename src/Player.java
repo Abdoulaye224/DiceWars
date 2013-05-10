@@ -1,3 +1,9 @@
+/**
+ * A player class to keep all the information on a player throughout the game.
+ * 
+ * @author Carson Boyd
+ * 
+ */
 public class Player {
 
 	private int playerBonus = 0;

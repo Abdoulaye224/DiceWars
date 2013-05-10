@@ -1,11 +1,12 @@
+/**
+ * Dice Wars is a simple game that involves two players rolling a die in order
+ * to see who can get to 18 first. It involves a bonus roll component in order
+ * for a player to get a 'x2' roll.
+ * 
+ * @author Carson Boyd
+ */
 public class DiceWars {
 
-	/**
-	 * 
-	 * First player to 18 - One time bonus roll worth times 2
-	 * 
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
 		Player player1 = new Player(1);
@@ -33,9 +34,7 @@ public class DiceWars {
 
 			if (playerTurn == 0) {
 
-				int score = ir.receiveString(player1, endNumber);
-
-				player1.setPlayerScore(player1.getPlayerScore() + score);
+				ir.receiveString(player1, endNumber);
 
 				playerTurn++;
 
@@ -48,9 +47,7 @@ public class DiceWars {
 
 			} else {
 
-				int score = ir.receiveString(player2, endNumber);
-
-				player2.setPlayerScore(player2.getPlayerScore() + score);
+				ir.receiveString(player2, endNumber);
 
 				playerTurn--;
 

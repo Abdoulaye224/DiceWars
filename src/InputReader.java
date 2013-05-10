@@ -1,5 +1,12 @@
 import java.util.Scanner;
 
+/**
+ * The class that takes the user input and will call the roll function in order
+ * to add to a players score.
+ * 
+ * @author Carson Boyd
+ * 
+ */
 public class InputReader {
 
 	private Roller roller;
@@ -10,7 +17,16 @@ public class InputReader {
 
 	}
 
-	public int receiveString(Player player, int endNumber) {
+	/**
+	 * Will retrieve a string from the users input and will either roll or bonus
+	 * roll for the player.
+	 * 
+	 * @param player
+	 *            - The Player whose turn it is.
+	 * @param endNumber
+	 *            - The final score that both players want to get to.
+	 */
+	public void receiveString(Player player, int endNumber) {
 
 		String command = null;
 		boolean finished = true;
@@ -27,17 +43,19 @@ public class InputReader {
 					|| command.compareTo("Roll") == 0) {
 
 				// roll command
-				int result = getRoller().roll();
+				int score = getRoller().roll();
+
+				player.setPlayerScore(player.getPlayerScore() + score);
 
 				System.out.println();
 				System.out.println("Player " + player.getPlayerNumber()
-						+ " rolled " + result);
+						+ " rolled " + score);
 				System.out.println("You now have a score of "
 						+ player.getPlayerScore() + " and are "
 						+ (endNumber - player.getPlayerScore())
 						+ " away from winning!");
-
-				return result;
+				System.out.println();
+				finished = false;
 
 			} else if (command.compareTo("bonus") == 0
 					|| command.compareTo("Bonus") == 0) {
@@ -50,27 +68,29 @@ public class InputReader {
 
 				} else {
 
-					int result = getRoller().roll();
+					int score = getRoller().roll();
+
+					player.setPlayerScore(player.getPlayerScore() + score
+							+ score);
 
 					System.out.println();
 					System.out.println("Player " + player.getPlayerNumber()
-							+ " rolled " + result);
-					System.out.println("And got a bonus of " + result);
+							+ " rolled " + score);
+					System.out.println("And got a bonus of " + score);
 					System.out.println("You now have a score of "
 							+ player.getPlayerScore() + " and are "
 							+ (endNumber - player.getPlayerScore())
 							+ " away from winning!");
+					System.out.println();
 
 					player.setPlayerBonus(player.getPlayerBonus() + 1);
-
-					return (result * 2);
+					finished = false;
 
 				}
 
 			}
 
 		}
-		return 0;
 
 	}
 
