@@ -81,7 +81,6 @@ public class DiceWars {
 		}
 
 		System.out.println();
-		System.out.println("End Results:");
 
 		System.out.println("Player " + (playerTurn + 1) + " won!!");
 

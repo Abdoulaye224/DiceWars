@@ -88,6 +88,11 @@ public class InputReader {
 
 				}
 
+			} else {
+
+				System.out
+						.println("Sorry, can you please type in either 'roll' or 'bonus'.");
+
 			}
 
 		}
